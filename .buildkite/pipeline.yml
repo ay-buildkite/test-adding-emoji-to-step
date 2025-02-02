@@ -1,7 +1,9 @@
-- label: ":docker: configure image tag"
+---
+steps:
+  - label: ':docker: configure image tag'
     key: tag:create
     commands:
-      - TAG=$$(git describe --tags)
+      - TAG=$(git describe --tags)
       - buildkite-agent meta-data set "TAG" "\${TAG}"
       - buildkite-agent step update "label" ":sunglasses: TAG=\${TAG}"
     agents:
